@@ -1,5 +1,5 @@
-[submodule "/Users/pinhoramic/.vim/bundle/mru"]
-	path = /Users/pinhoramic/.vim/bundle/mru
+[submodule "bundle/mru"]
+	path = bundle/mru
 	url = https://github.com/vim-scripts/mru.vim.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate

@@ -26,6 +26,9 @@ system "git clone git://github.com/pinhoramic/vimrc.git #{$VIMHOME}"
 Dir.chdir VIMHOME
 system "git submodule update --init"
 
+Dir.mkdir "undodir"
+Dir.mkdir "view"
+
 Dir.chdir ".."
 system "ln -s .vim/vimrc .vimrc"
 system "ln -s .vim/gvimrc .gvimrc"

@@ -1,8 +1,7 @@
 
 " pathogen.vim: auto load all plugins in .vim/bundle
-"call pathogen#runtime_append_all_bundles()
-"call pathogen#helptags()
 call pathogen#infect() 
+call pathogen#helptags()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
@@ -19,10 +18,7 @@ filetype indent on
 let mapleader = ","
 let g:mapleader = ","
 
-" Fast saving
-"nmap <leader>w :w!<cr>
-
-" Fast editing of the .vimrc
+" fast editing of the .vimrc
 map <leader>e :e! ~/.vimrc<cr>
 
 " when vimrc is edited, reload it
@@ -370,7 +366,7 @@ set foldlevel=0
 " => Programming related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ctrl-[ jump out of the tag stack (undo Ctrl-])
-map <C-[> <ESC>:po<CR>
+"map <C-[> <esc>:po<cr>
 
 " ,g generates the header guard
 map <leader>g :call IncludeGuard()<CR>
@@ -430,21 +426,6 @@ noremap <leader>y :CommandTFlush<cr>
 
 
 """"""""""""""""""""""""""""""
-" => Taglist plugin
-""""""""""""""""""""""""""""""
-
-"let Tlist_Ctags_Cmd = '/usr/local/bin/ctags'
-"let Tlist_Sort_Type = "name" " order by 
-"let Tlist_Use_Right_Window = 1 " split to the right side of the screen
-"let Tlist_Compart_Format = 1 " show small meny
-"let Tlist_Exist_OnlyWindow = 1 " if you are the last, kill yourself
-"let Tlist_File_Fold_Auto_Close = 0 " Do not close tags for other files
-""let Tlist_Enable_Fold_Column = 0 " Do not show folding tree
-"nmap <F4> :TlistToggle<CR>
-""map <leader>tl :TlistToggle<CR>
-
-
-""""""""""""""""""""""""""""""
 " => Project plugin
 """"""""""""""""""""""""""""""
 "nmap <silent> <C-K> <Plug>ToggleProject
@@ -460,61 +441,5 @@ nmap <F3> :NERDTreeToggle<CR>
 """"""""""""""""""""""""""""""
 " => vim-latex plugin
 """"""""""""""""""""""""""""""
-
 let g:tex_flavor = "latex"
 autocmd FileType tex source ~/.vim/latex.vim
-
-""""""""""""""""""""""""""""""
-" => vimgdb plugin
-""""""""""""""""""""""""""""""
-
-":syntax enable	 				" enable syntax highlighting
-":set previewheight=12			" set gdb window initial height
-":run macros/gdb_mappings.vim	" source key mappings listed in this document
-":set asm=0						" don't showany assembly stuff
-
-""""""""""""""""""""""""""""""
-" => Bookmark
-""""""""""""""""""""""""""""""
-
-"":set shell=sh shellslash shellcmdflag=-c shellxquote=\" shellpipe=\|\ tee
-":amenu Mo2.BookMarks.Add
-" \ :let @b=":amenu Mo2.BookMarks.".
-"" \ escape(escape(expand("%:t"),'.\'),'\').
-" \ escape(escape(expand(":y$"),'.\'),'\').
-" \ ' :sp +'.line(".").' '.
-" \ escape(expand("%:p"),' \')<CR>
-" \ :exe ':!(echo '.@b.' >> ~/.vim/bookmark.vim)'<CR>
-" \ :so ~/.vim/bookmark.vim<CR>
-":amenu Mo2.BookMarks.Edit :sp ~/.vim/bookmark.vim<CR>
-":amenu Mo2.BookMarks.Load :so ~/.vim/bookmark.vim<CR>
-
-"if filereadable(expand("~/.vim/bookmark.vim"))
-"	  amenu Mo2.BookMarks.-Sep- :
-"	  so ~/.vim//bookmark.vim
-"endif
-
-
-""""""""""""""""""""""""""""""
-" => JavaScript section
-"""""""""""""""""""""""""""""""
-"au FileType javascript call JavaScriptFold()
-"au FileType javascript setl fen
-"au FileType javascript setl nocindent
-
-"au FileType javascript imap <c-t> AJS.log();<esc>hi
-"au FileType javascript imap <c-a> alert();<esc>hi
-
-"au FileType javascript inoremap <buffer> $r return 
-"au FileType javascript inoremap <buffer> $f //--- PH ----------------------------------------------<esc>FP2xi
-
-"function! JavaScriptFold() 
-"    setl foldmethod=syntax
-"    setl foldlevelstart=1
-"    syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
-"
-"    function! FoldText()
-"    return substitute(getline(v:foldstart), '{.*', '{...}', '')
-"    endfunction
-"    setl foldtext=FoldText()
-"endfunction
