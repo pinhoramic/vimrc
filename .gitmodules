@@ -1,21 +1,21 @@
-[submodule "/Users/pinhoramic/.vim/bundles/mru"]
-	path = /Users/pinhoramic/.vim/bundles/mru
+[submodule "/Users/pinhoramic/.vim/bundle/mru"]
+	path = /Users/pinhoramic/.vim/bundle/mru
 	url = https://github.com/vim-scripts/mru.vim.git
-[submodule "bundles/snipmate"]
-	path = bundles/snipmate
+[submodule "bundle/snipmate"]
+	path = bundle/snipmate
 	url = https://github.com/msanders/snipmate.vim.git
-[submodule "bundles/nerdtree"]
-	path = bundles/nerdtree
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "bundles/command-t"]
-	path = bundles/command-t
+[submodule "bundle/command-t"]
+	path = bundle/command-t
 	url = https://github.com/wincent/Command-T.git
-[submodule "bundles/surround"]
-	path = bundles/surround
+[submodule "bundle/surround"]
+	path = bundle/surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule "bundles/bufexplorer"]
-	path = bundles/bufexplorer
+[submodule "bundle/bufexplorer"]
+	path = bundle/bufexplorer
 	url = https://github.com/vim-scripts/bufexplorer.zip.git
-[submodule "bundles/tagbar"]
-	path = bundles/tagbar
+[submodule "bundle/tagbar"]
+	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
