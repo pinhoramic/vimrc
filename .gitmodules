@@ -1,0 +1,21 @@
+[submodule "/Users/pinhoramic/.vim/bundles/mru"]
+	path = /Users/pinhoramic/.vim/bundles/mru
+	url = https://github.com/vim-scripts/mru.vim.git
+[submodule "bundles/snipmate"]
+	path = bundles/snipmate
+	url = https://github.com/msanders/snipmate.vim.git
+[submodule "bundles/nerdtree"]
+	path = bundles/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "bundles/command-t"]
+	path = bundles/command-t
+	url = https://github.com/wincent/Command-T.git
+[submodule "bundles/surround"]
+	path = bundles/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "bundles/bufexplorer"]
+	path = bundles/bufexplorer
+	url = https://github.com/vim-scripts/bufexplorer.zip.git
+[submodule "bundles/tagbar"]
+	path = bundles/tagbar
+	url = https://github.com/majutsushi/tagbar.git
