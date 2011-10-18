@@ -96,6 +96,9 @@ set shiftwidth=2
 set tabstop=2
 set smarttab
 
+set lcs=tab:\.\ ,trail:-
+set list
+
 au FileType Makefile set noexpandtab
 
 set lbr
