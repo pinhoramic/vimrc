@@ -226,8 +226,8 @@ map <C-l> <C-W>l
 "map <leader>ba :1,300 bd!<cr>
 
 " use the arrows to something usefull
-"map <right> :bn<cr>
-"map <left> :bp<cr>
+map <right> :tabn<cr>
+map <left> :tabp<cr>
 
 " tab configuration
 map <leader>tn :tabnew<cr>
