@@ -4,7 +4,7 @@ call pathogen#infect()
 call pathogen#helptags()
 
 set nocompatible         " not compatible with the old-fashion vi mode, must be first
-set history=50					 " sets how many lines of history VIM has to remember
+set history=50           " sets how many lines of history VIM has to remember
 set autoread             " set to auto read when a file is changed from the outside
 
 filetype on
@@ -21,7 +21,7 @@ map <leader>e :e! ~/.vimrc<cr>
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
 set number                " always show line number
-"set showcmd		           " display incomplete commands
+"set showcmd               " display incomplete commands
 
 set scrolloff=7          " set 7 lines to the curors - when moving vertical
 set wildmenu             " turn on wild menu
@@ -105,7 +105,7 @@ set lbr
 set tw=500
 
 set autoindent            " auto indent
-set copyindent		        " copy the previous indentation on autoindenting
+set copyindent            " copy the previous indentation on autoindenting
 set smartindent           " smart indet
 set wrap                  " wrap lines
 
@@ -118,16 +118,16 @@ set laststatus=2          " always hide the statusline
 set statusline=\ %{HasPaste()}%F%m%r%h\ %w\ \ path:\ %r%{CurDir()}%h\ \ \ line:\ %l/%L:%c
 
 function! CurDir()
-    let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
-    return curdir
+  let curdir = substitute(getcwd(), '/Users/amir/', "~/", "g")
+  return curdir
 endfunction
 
 function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    else
-        return ''
-    endif
+  if &paste
+    return 'PASTE MODE  '
+  else
+    return ''
+  endif
 endfunction
 
 
@@ -147,29 +147,29 @@ vnoremap <silent> gv :call VisualSearch('gv')<CR>
 "map <leader>g :vimgrep // **/*.<left><left><left><left><left><left><left>
 
 function! CmdLine(str)
-    exe "menu Foo.Bar :" . a:str
-    emenu Foo.Bar
-    unmenu Foo
+  exe "menu Foo.Bar :" . a:str
+  emenu Foo.Bar
+  unmenu Foo
 endfunction 
 
 " From an idea by Michael Naumann
 function! VisualSearch(direction) range
-    let l:saved_reg = @"
-    execute "normal! vgvy"
+  let l:saved_reg = @"
+  execute "normal! vgvy"
 
-    let l:pattern = escape(@", '\\/.*$^~[]')
-    let l:pattern = substitute(l:pattern, "\n$", "", "")
+  let l:pattern = escape(@", '\\/.*$^~[]')
+  let l:pattern = substitute(l:pattern, "\n$", "", "")
 
-    if a:direction == 'b'
-        execute "normal ?" . l:pattern . "^M"
-    elseif a:direction == 'gv'
-        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
-    elseif a:direction == 'f'
-        execute "normal /" . l:pattern . "^M"
-    endif
+  if a:direction == 'b'
+    execute "normal ?" . l:pattern . "^M"
+  elseif a:direction == 'gv'
+    call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
+  elseif a:direction == 'f'
+    execute "normal /" . l:pattern . "^M"
+  endif
 
-    let @/ = l:pattern
-    let @" = l:saved_reg
+  let @/ = l:pattern
+  let @" = l:saved_reg
 endfunction
 
 
@@ -185,16 +185,16 @@ cno $c e <C-\>eCurrentFileDir("e")<cr>
 cno $q <C-\>eDeleteTillSlash()<cr>
 
 " Bash like keys for the command line
-cnoremap <C-A>		<Home>
-cnoremap <C-E>		<End>
-cnoremap <C-K>		<C-U>
+cnoremap <C-A> <Home>
+cnoremap <C-E> <End>
+cnoremap <C-K> <C-U>
 
 cnoremap <C-P> <Up>
 cnoremap <C-N> <Down>
 
 func! Cwd()
   let cwd = getcwd()
-  return "e " . cwd 
+  return "e " . cwd
 endfunc
 
 func! DeleteTillSlash()
@@ -202,7 +202,7 @@ func! DeleteTillSlash()
   let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*", "\\1", "")
   if g:cmd == g:cmd_edited
     let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*/", "\\1", "")
-  endif   
+  endif
   return g:cmd_edited
 endfunc
 
@@ -346,11 +346,11 @@ set foldlevel=0
 " ,g generates the header guard
 map <leader>g :call IncludeGuard()<CR>
 fun! IncludeGuard()
-   let basename = substitute(bufname(""), '.*/', '', '')
-   let guard = '_' . substitute(toupper(basename), '\.', '_', "H")
-   call append(0, "#ifndef " . guard)
-   call append(1, "#define " . guard)
-   call append( line("$"), "#endif // for #ifndef " . guard)
+  let basename = substitute(bufname(""), '.*/', '', '')
+  let guard = '_' . substitute(toupper(basename), '\.', '_', "H")
+  call append(0, "#ifndef " . guard)
+  call append(1, "#define " . guard)
+  call append( line("$"), "#endif // for #ifndef " . guard)
 endfun
 
 
@@ -398,4 +398,8 @@ nmap <F3> :NERDTreeToggle<CR>
 "" vim-latex plugin
 let g:tex_flavor = "latex"
 autocmd FileType tex source ~/.vim/latex.vim
+
+" disable <C-j> mapping
+let g:Imap_DeleteEmptyPlaceHolders=0
+let g:Imap_StickyPlaceHolders=0
 
