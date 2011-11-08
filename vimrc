@@ -347,7 +347,7 @@ set foldlevel=0
 map <leader>g :call IncludeGuard()<CR>
 fun! IncludeGuard()
   let basename = substitute(bufname(""), '.*/', '', '')
-  let guard = '_' . substitute(toupper(basename), '\.', '_', "H")
+  let guard = '_' . substitute(toupper(basename), '\.', '_', "H_")
   call append(0, "#ifndef " . guard)
   call append(1, "#define " . guard)
   call append( line("$"), "#endif // for #ifndef " . guard)
