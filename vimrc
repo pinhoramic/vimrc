@@ -399,7 +399,6 @@ nmap <tab> :NERDTreeToggle<CR>
 let g:tex_flavor = "latex"
 autocmd FileType tex source ~/.vim/latex.vim
 
-" disable <C-j> mapping
-let g:Imap_DeleteEmptyPlaceHolders=0
-let g:Imap_StickyPlaceHolders=0
-map <C-j> <C-W>j
+" (hack) map these to something else to preserve <C-j> mapping
+map <C-I><C-j> <Plug>IMAP_JumpForward
+vmap <C-I><C-J> <Plug>IMAP_DeleteAndJumpForward
