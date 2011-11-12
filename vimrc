@@ -1,6 +1,6 @@
 
 " pathogen.vim: auto load all plugins in .vim/bundle
-call pathogen#infect() 
+call pathogen#infect('~/.vim/bundle')
 call pathogen#helptags()
 
 set nocompatible         " not compatible with the old-fashion vi mode, must be first
@@ -392,7 +392,7 @@ noremap <leader>y :CommandTFlush<cr>
 
 
 "" nerdtree plugin
-nmap <F3> :NERDTreeToggle<CR>
+nmap <tab> :NERDTreeToggle<CR>
 
 
 "" vim-latex plugin
@@ -402,4 +402,4 @@ autocmd FileType tex source ~/.vim/latex.vim
 " disable <C-j> mapping
 let g:Imap_DeleteEmptyPlaceHolders=0
 let g:Imap_StickyPlaceHolders=0
-
+map <C-j> <C-W>j
