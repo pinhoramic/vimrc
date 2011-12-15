@@ -18,7 +18,7 @@ let g:mapleader = ","
 map <leader>e :e! ~/.vimrc<cr>
 
 " when vimrc is edited, reload it
-autocmd! bufwritepost .vimrc source ~/.vimrc
+autocmd! BufWritePost .vimrc source ~/.vimrc
 
 set number                " always show line number
 "set showcmd               " display incomplete commands
@@ -328,8 +328,8 @@ set guitablabel=%t
 " (happens when dropping a file on gvim).
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-au BufWinLeave *.cpp,*.h,*.rb mkview
-au BufReadPost *.cpp,*.h,*.rb silent loadview
+au BufWinLeave *.cpp,*.h,*.rb,*.js,*.coffee mkview
+au BufReadPost *.cpp,*.h,*.rb,*,js,*.coffee silent loadview
 "au BufWinEnter *.cpp,*.h,*.rb silent loadview
 
 set fdm=syntax
