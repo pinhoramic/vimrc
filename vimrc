@@ -328,8 +328,8 @@ set guitablabel=%t
 " (happens when dropping a file on gvim).
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-au BufWinLeave *.cpp,*.h,*.rb,*.js,*.coffee mkview
-au BufReadPost *.cpp,*.h,*.rb,*,js,*.coffee silent loadview
+au BufWinLeave *.cpp,*.h,*.rb,*.js,*.coffee,*.java mkview
+au BufReadPost *.cpp,*.h,*.rb,*,js,*.coffee,*.java silent loadview
 "au BufWinEnter *.cpp,*.h,*.rb silent loadview
 
 set fdm=syntax
@@ -397,8 +397,39 @@ nmap <tab> :NERDTreeToggle<CR>
 
 "" vim-latex plugin
 let g:tex_flavor = "latex"
-autocmd FileType tex source ~/.vim/latex.vim
+au FileType tex source ~/.vim/latex.vim
 
 " (hack) map these to something else to preserve <C-j> mapping
 map <C-I><C-j> <Plug>IMAP_JumpForward
 vmap <C-I><C-J> <Plug>IMAP_DeleteAndJumpForward
+
+
+"" tagbar
+nmap <S-tab> :TagbarToggle<CR>
+
+"===== CoffeeScript ====="
+
+au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+
+"===== JavaScript ====="
+
+au FileType javascript call JavaScriptFold()
+au FileType javascript setl fen
+au FileType javascript setl nocindent
+
+au FileType javascript imap <c-t> AJS.log();<esc>hi
+au FileType javascript imap <c-a> alert();<esc>hi
+
+au FileType javascript inoremap <buffer> $r return
+au FileType javascript inoremap <buffer> $f //--- PH ----------------------------------------------<esc>FP2xi
+
+function! JavaScriptFold()
+    setl foldmethod=syntax
+    setl foldlevelstart=1
+    syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend
+
+    function! FoldText()
+    return substitute(getline(v:foldstart), '{.*', '{...}', '')
+    endfunction
+    setl foldtext=FoldText()
+endfunction
