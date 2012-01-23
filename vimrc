@@ -292,7 +292,7 @@ iab xdate <c-r>=strftime("%d/%m/%y %H:%M:%S")<cr>
 
 "===== editing mappings ====="
 
-map <silent> <return> :let @/=""<CR>
+nnoremap <silent> \ :let @/=""<CR>
 
 " don't use Ex mode, use Q for formatting
 map Q gq
@@ -328,9 +328,26 @@ set guitablabel=%t
 " (happens when dropping a file on gvim).
 au BufReadPost * if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal g`\"" | endif
 
-au BufWinLeave *.cpp,*.h,*.rb,*.js,*.coffee,*.java mkview
-au BufReadPost *.cpp,*.h,*.rb,*,js,*.coffee,*.java silent loadview
-"au BufWinEnter *.cpp,*.h,*.rb silent loadview
+"au BufWinLeave *.cpp,*.h,*.rb,*.js,*.coffee,*.java mkview
+"au BufReadPost *.cpp,*.h,*.rb,*,js,*.coffee,*.java silent loadview
+
+function! MakeViewCheck()
+    if has('quickfix') && &buftype =~ 'nofile'
+        " Buffer is marked as not a file
+        return 0
+    endif
+    if empty(glob(expand('%:p')))
+        " File does not exist on disk
+        return 0
+    endif
+    return 1
+endfunction
+augroup vimrcAutoView
+    autocmd!
+    " Autosave & Load Views.
+    au BufWritePost,BufLeave,WinLeave ?* if MakeViewCheck() | mkview | endif
+    au BufReadPost ?* if MakeViewCheck() | silent loadview | endif
+augroup end
 
 set fdm=syntax
 set fdc=2
