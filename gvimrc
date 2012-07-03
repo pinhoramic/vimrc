@@ -13,6 +13,7 @@ if has("gui_macvim")
   map <D-t> :CommandT<CR>
   " hide toolbar
   set go-=T
+  set transparency=15
   "let macvim_hig_shift_movement = 1
   "an 10.300 File.Project :ProjectToggle<CR>
   "macm File.Project key=<D-k>
