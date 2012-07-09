@@ -8,9 +8,6 @@ amenu icon=~/.vim/icons/hdd_unmount.icns ToolBar.NerdTree :NERDTreeToggle<CR>
 amenu icon=~/.vim/icons/make.icns ToolBar.Latex \ll<CR>
 
 if has("gui_macvim")
-  " disable the original Cmd-T (open new tab) and map Cmd-T to the CommandT plugin
-  macmenu &File.New\ Tab key=<nop>
-  map <D-t> :CommandT<CR>
   " hide toolbar
   set go-=T
   set transparency=15
