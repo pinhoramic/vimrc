@@ -392,13 +392,6 @@ let MRU_Max_Entries = 400
 map <leader>f :MRU<CR>
 
 
-"" command-t
-let g:CommandTMaxHeight = 15
-set wildignore+=*.o,*.obj,.git,*.pyc
-noremap <leader>j :CommandT<cr>
-noremap <leader>y :CommandTFlush<cr>
-
-
 "" nerdtree plugin
 nmap <tab> :NERDTreeToggle<CR>
 
