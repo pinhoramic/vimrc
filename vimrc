@@ -377,7 +377,7 @@ map <leader>ss :setlocal spell!<cr>
 
 "" cope
 "map <leader>cc :botright cope<cr>
-map <leader>cc :cope<cr>
+map <leader>co :cope<cr>
 map <leader>n :cn<cr>
 map <leader>p :cp<cr>
 
