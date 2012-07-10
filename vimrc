@@ -411,6 +411,7 @@ nmap <S-tab> :TagbarToggle<CR>
 "===== CoffeeScript ====="
 
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
+au BufNewFile,BufReadPost *.coffee setl fdm=indent
 
 "===== JavaScript ====="
 
