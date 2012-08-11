@@ -99,8 +99,6 @@ set smarttab
 set lcs=tab:\.\ ,trail:-
 set list
 
-au FileType Makefile set noexpandtab
-
 set lbr
 set tw=500
 
@@ -246,19 +244,6 @@ nnoremap <silent> \ :let @/=""<CR>
 " don't use Ex mode, use Q for formatting
 map Q gq
 
-"Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
-"nmap <M-j> mz:m+<cr>`z
-"nmap <M-k> mz:m-2<cr>`z
-"vmap <M-j> :m'>+<cr>`<my`>mzgv`yo`z
-"vmap <M-k> :m'<-2<cr>`>my`<mzgv`yo`z
-
-"if MySys() == "mac"
-"  nmap <D-j> <M-j>
-"  nmap <D-k> <M-k>
-"  vmap <D-j> <M-j>
-"  vmap <D-k> <M-k>
-"endif
-
 "Delete trailing white space, useful for Python ;)
 func! DeleteTrailingWS()
   exe "normal mz"
@@ -371,11 +356,17 @@ vmap <C-I><C-J> <Plug>IMAP_DeleteAndJumpForward
 "" tagbar
 nmap <S-tab> :TagbarToggle<CR>
 
-"===== CoffeeScript ====="
 
+"===== Language specific ====="
+
+"" Makefile
+au FileType Makefile set noexpandtab
+
+"" CoffeeScript
 au BufNewFile,BufReadPost *.coffee setl fdm=indent nofoldenable
 
-"===== JavaScript ====="
+
+"" JavaScript
 
 au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
@@ -394,7 +385,9 @@ function! JavaScriptFold()
     setl foldtext=FoldText()
 endfunction
 
-"===== ActionScript ====="
+"" Java
+au FileType java shiftwidth=4 tabstop=4
 
+"" ActionScript
 au BufNewFile,BufReadPost *.as setl filetype=actionscript
 au BufNewFile,BufReadPost *.as setl shiftwidth=4 tabstop=4
