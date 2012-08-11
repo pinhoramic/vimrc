@@ -211,59 +211,17 @@ func! CurrentFileDir(cmd)
 endfunc
 
 
-"===== tabs and buffers ====="
-
-" smart way to move btw. windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
-
-" close the current buffer
-"map <leader>bd :Bclose<cr>
-
-" close all the buffers
-"map <leader>ba :1,300 bd!<cr>
+"===== buffers ====="
 
 " use the arrows to something usefull
-map <right> :tabn<cr>
-map <left> :tabp<cr>
-
-" tab configuration
-map <leader>tn :tabnew<cr>
-map <leader>te :tabedit 
-map <leader>tc :tabclose<cr>
-map <leader>tm :tabmove 
+map <right> :bn<cr>
+map <left> :bp<cr>
 
 " when pressing <leader>cd switch to the directory of the open buffer
 map <leader>cd :cd %:p:h<cr>
 
-"command! Bclose call <SID>BufcloseCloseIt()
-"function! <SID>BufcloseCloseIt()
-"   let l:currentBufNum = bufnr("%")
-"   let l:alternateBufNum = bufnr("#")
-"
-"   if buflisted(l:alternateBufNum)
-"     buffer #
-"   else
-"     bnext
-"   endif
-"
-"   if bufnr("%") == l:currentBufNum
-"     new
-"   endif
-"
-"   if buflisted(l:currentBufNum)
-"     execute("bdelete! ".l:currentBufNum)
-"   endif
-"endfunction
-
-" specify the behavior when switching between buffers 
-try
-  set switchbuf=usetab
-  set stal=2
-catch
-endtry
+" specify the behavior when switching between buffers
+set switchbuf=usetab
 
 
 "===== parenthesis/bracket expanding ====="
@@ -385,6 +343,11 @@ map <leader>p :cp<cr>
 "" bufexplorer
 "let g:bufExplorerShowRelativePath=1
 map <leader>o :BufExplorer<cr>
+
+
+"" MiniBufExpl
+map <leader>b :MiniBufExplorer<cr>
+let g:miniBufExplMapWindowNavVim = 1
 
 
 "" mru
