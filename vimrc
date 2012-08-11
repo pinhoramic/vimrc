@@ -410,8 +410,7 @@ nmap <S-tab> :TagbarToggle<CR>
 
 "===== CoffeeScript ====="
 
-au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable
-au BufNewFile,BufReadPost *.coffee setl fdm=indent
+au BufNewFile,BufReadPost *.coffee setl fdm=indent nofoldenable
 
 "===== JavaScript ====="
 
@@ -419,11 +418,7 @@ au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
 au FileType javascript setl nocindent
 
-au FileType javascript imap <c-t> AJS.log();<esc>hi
-au FileType javascript imap <c-a> alert();<esc>hi
-
-au FileType javascript inoremap <buffer> $r return
-au FileType javascript inoremap <buffer> $f //--- PH ----------------------------------------------<esc>FP2xi
+au FileType javascript imap <c-l> console.log();<esc>hi
 
 function! JavaScriptFold()
     setl foldmethod=syntax
@@ -435,3 +430,8 @@ function! JavaScriptFold()
     endfunction
     setl foldtext=FoldText()
 endfunction
+
+"===== ActionScript ====="
+
+au BufNewFile,BufReadPost *.as setl filetype=actionscript
+au BufNewFile,BufReadPost *.as setl shiftwidth=4 tabstop=4
