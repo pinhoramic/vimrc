@@ -32,6 +32,3 @@ Dir.mkdir "view"
 Dir.chdir ".."
 system "ln -s .vim/vimrc .vimrc"
 system "ln -s .vim/gvimrc .gvimrc"
-
-Dir.chdir "#{VIMRUNTIME}/bundle/command-t"
-system "rake make"
