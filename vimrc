@@ -334,6 +334,7 @@ map <leader>o :BufExplorer<cr>
 map <leader>b :MiniBufExplorer<cr>
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplModSelTarget = 1
+let g:miniBufExplUseSingleClick = 1
 
 
 "" mru
