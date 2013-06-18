@@ -359,6 +359,15 @@ vmap <C-I><C-J> <Plug>IMAP_DeleteAndJumpForward
 nmap <S-tab> :TagbarToggle<CR>
 
 
+"" vim-fugitive
+map <leader>gs :Gstatus<CR>
+map <leader>gd :Gdiff<CR>
+map <leader>gc :Gcommit<CR>
+map <leader>gb :Gblame<CR>
+map <leader>gl :Git smart-log<CR>
+map <leader>gp :Git push<CR>
+
+
 "===== Language specific ====="
 
 "" Makefile
