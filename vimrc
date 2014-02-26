@@ -403,3 +403,4 @@ au FileType java shiftwidth=4 tabstop=4
 "" ActionScript
 au BufNewFile,BufReadPost *.as setl filetype=actionscript
 au BufNewFile,BufReadPost *.as setl shiftwidth=4 tabstop=4
+au filetype actionscript set noexpandtab
