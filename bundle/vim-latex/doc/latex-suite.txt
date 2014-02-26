@@ -1820,9 +1820,9 @@ xdvi |ls_u_12|          Linux/UNIX            DVI
 xdvik |ls_u_13|         Linux/UNIX            DVI                    
 
 Pressing \ls from within Vim should make the viewer display the portion of the
-document where your cursor is placed.NOTE: OS/X users need to set the g:TreatMacViewerAsUNIX flag to 1 and provide a
-      UNIX-like viewrule, that expects as arguments the document, the linenumber
-      and the sourcefile in this order.
+document where your cursor is placed.NOTE: OS/X users need to set the g:Tex_TreatMacViewerAsUNIX flag to 1 and
+      provide a UNIX-like viewrule, that expects as arguments the document, the
+      linenumber and the sourcefile in this order.
       
       
 
@@ -1845,7 +1845,9 @@ Inverse Searching                                             *ls_7_3* *ls_a_ch*
                                                              *inverse-searching*
 
 Inverse searching refers to the viewer telling Vim to display the LaTeX source
-file at a given location when you double-click in the viewer window.
+file at a given location. Usually this happens with double-clicking or clicking
+while pressing the shift button in the viewer window. The actual method depends
+on the viewer application.
 
 You will need to enable searching [|ls_a_ed|] in order to use this
 functionality.
@@ -3117,7 +3119,7 @@ produces. Use  >
 from within Vim in order to see all the lines from the compiler's output.
 
 
-Tex_UseMakefile                                            *ls_11_6_7* *ls_a_dC*
+g:Tex_UseMakefile                                          *ls_11_6_7* *ls_a_dC*
                                                                *Tex_UseMakefile*
 
 Type             boolean
