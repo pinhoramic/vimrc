@@ -344,6 +344,7 @@ map <leader>f :MRU<CR>
 
 "" nerdtree plugin
 nmap <tab> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.o$', '\.obj$', '\.a$', '\.so$']
 
 
 "" vim-latex plugin
